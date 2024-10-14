@@ -8,7 +8,7 @@ import android.graphics.drawable.Drawable;
         if (activity.getClass().getName().equals("com.rk.xededitor.MainActivity.MainActivity")) {*/
             jdk11Runner = new RunnerImpl() {
                 void run(file, context) {
-                    Terminal.runCommand(true, "/karbon/plugins/Java-Plugin/scripts/jdk11.sh", new Object[] {file.getName()}, file.getParentFile().getAbsolutePath(), context);
+                    Terminal.runCommand(true, "/karbon/plugins/Java-Compiler-main/scripts/jdk11.sh", new Object[] {file.getName()}, file.getParentFile().getAbsolutePath(), context);
                 }
                 String getName(){
                    return "JDK 11";
