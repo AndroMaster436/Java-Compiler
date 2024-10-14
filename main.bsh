@@ -1,15 +1,19 @@
 import com.rk.runner.Runner;
 import com.rk.runner.RunnerImpl;
-import com.rk.xededitor.terminal.Terminal;
+import com.rk.runner.commonUtils;
 import android.graphics.drawable.Drawable;
 import java.io.File;
+import com.rk.libcommons.Decompress;
 
 /*api.onActivityCreate("mIdOnCreate", new PluginLifeCycle.ActivityEvent() {
     void onEvent(id, activity) {
         if (activity.getClass().getName().equals("com.rk.xededitor.MainActivity.MainActivity")) {*/
             jdk11Runner = new RunnerImpl() {
                 void run(file, context) {
-                    Terminal.runCommand(true, "/karbon/plugins/Java-Compiler-main/scripts/jdk11.sh", new Object[] {file.getName()}, file.getParentFile().getAbsolutePath(), context);
+                    if (!new File("/karbon/plugins/Java-Compiler/jdk/11").exists()) {
+                        Decompress.unzip("/karbon/plugins/Java-Compiler/JDK11.tar.xz", "/karbon/plugins/Java-Compiler/jdk/11");
+                    }
+                    commonUtils.runCommand(true, "/bin/bash /karbon/plugins/Java-Compiler/scripts/jdk11.sh", new String[] {file.getName()}, file.getParentFile().getAbsolutePath(), context);
                 }
                 String getName(){
                    return "JDK 11";
