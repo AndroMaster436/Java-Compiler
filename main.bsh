@@ -2,6 +2,7 @@ import com.rk.runner.Runner;
 import com.rk.runner.RunnerImpl;
 import com.rk.xededitor.terminal.Terminal;
 import android.graphics.drawable.Drawable;
+import java.io.File;
 
 /*api.onActivityCreate("mIdOnCreate", new PluginLifeCycle.ActivityEvent() {
     void onEvent(id, activity) {
