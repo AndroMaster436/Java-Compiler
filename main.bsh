@@ -1,0 +1,37 @@
+import com.rk.runner.Runner;
+import com.rk.runner.RunnerImpl;
+import com.rk.xededitor.terminal.Terminal;
+import android.graphics.drawable.Drawable;
+
+/*api.onActivityCreate("mIdOnCreate", new PluginLifeCycle.ActivityEvent() {
+    void onEvent(id, activity) {
+        if (activity.getClass().getName().equals("com.rk.xededitor.MainActivity.MainActivity")) {*/
+            jdk11Runner = new RunnerImpl() {
+                void run(file, context) {
+                    Terminal.runCommand(true, "/karbon/plugins/Java-Plugin/scripts/jdk11.sh", new Object[] {file.getName()}, file.getParentFile().getAbsolutePath(), context);
+                }
+                String getName(){
+                   return "JDK 11";
+                }
+
+                String getDescription(){
+                   return "Java 11 runtime";
+                }
+
+                Drawable getIcon(context){
+                   return null;
+                }
+            };
+
+            if (Runner.INSTANCE.registry.get("java") == null || Runner.INSTANCE.registry.get("java").isEmpty()) {
+                arr = new ArrayList();
+                arr.add(jdk11Runner);
+                Runner.INSTANCE.registry.put("java",arr);
+            } else {
+                list = Runner.INSTANCE.registry.get("java");
+                list.add(jdk11Runner);
+                Runner.INSTANCE.registry.put("java",list);
+            }
+        /*}
+    }
+});*/
