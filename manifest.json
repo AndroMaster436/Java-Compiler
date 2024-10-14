@@ -1,10 +1,10 @@
 {
   "name": "Java Compiler",
-  "packageName": "com.rk.ecj.jvm",
-  "author": "Rohit Kushvaha",
-  "version": "1.0.1",
+  "packageName": "com.nosteam.jdk",
+  "author": "Andro_Dev",
+  "version": "1.0.0",
   "versionCode": 1,
   "script": "main.bsh",
-  "description":"Eclipse Java compiler",
+  "description":"OpenJDK compiler for karbon",
   "icon": "icon.png"
 }
